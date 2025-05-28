@@ -65,6 +65,16 @@ public:
     }
 };
 
+/*✅ Time Complexity:
+O(n) – Each node is visited once.
+
+✅ Space Complexity:
+Recursive: O(h) → worst-case O(n) if skewed tree (due to call stack).
+
+Iterative: O(n) → in the worst case, all nodes can be in the stack (like in a skewed tree).
+*/
+
+
 
 // 2.  INORDER TRAVERSAL (LEFT + ROOT + RIGHT)
 
@@ -117,6 +127,18 @@ public:
     }
 };
 
+ /*2. 
+
+✅ Time Complexity:
+O(n) – Each node is visited once.
+
+✅ Space Complexity:
+Recursive: O(h) → call stack, up to height of tree.
+
+Iterative: O(n) → up to n nodes in the stack in worst case (left skewed).*/
+
+
+
 
 // 2.  POSTORDER TRAVERSAL (LEFT + RIGHT + ROOT )
 
@@ -141,6 +163,8 @@ public:
         return res;
     }
 };
+
+
 // ITERATIVE USING 2 STACK 
 
 class Solution {
@@ -177,8 +201,8 @@ public:
     }
 };
 
-//ITERATIVE USING 1 STACK
 
+//ITERATIVE USING 1 STACK
 
 
 class Solution {
@@ -217,6 +241,25 @@ public:
     }
 };
 
+/*✅ Time Complexity:
+O(n) – Every node is visited exactly once.
+
+✅ Space Complexity:
+Recursive: O(h) → due to function call stack (height of tree).
+
+Iterative (2 stacks):
+
+st1 and st2 may hold n elements together.
+
+Space: O(2n) = O(n).
+
+Iterative (1 stack):
+
+Stack and result vector: up to n nodes.
+
+Space: O(n).
+*/
+
 
 //  LEVEL ORDER TRAVERSAL
 
@@ -250,6 +293,18 @@ public:
         return ans;
     }
 };
+
+/*
+✅ Time Complexity:
+O(n) – All nodes are visited once.
+
+✅ Space Complexity:
+O(n) – At most all nodes at the last level (≈ n/2) are in the queue at once.
+
+So queue size can be up to O(n) in worst case.
+*/
+
+
 
 // ALL TRAVERSALS IN ONE ( PREORDER, POSTORDER, INORDER)
 
@@ -329,4 +384,29 @@ vector<vector<int>> preInPostTraversal(Node* root) {
     result.push_back(post);
     return result;
 }
+
+/*
+✅ Time Complexity:
+O(3n)
+
+Each node is:
+
+Pushed and popped from the stack
+
+Recorded in pre, in, and post (total 3 operations)
+
+So total = 3n operations
+
+✅ Space Complexity:
+O(4n):
+
+Stack stores up to n nodes (worst case) ⇒ O(n)
+
+3 vectors (pre, in, post), each of size n ⇒ O(3n)
+
+So total = O(n + 3n) = O(4n)
+
+
+*/
+
 
